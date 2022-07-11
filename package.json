@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "start": "npm run build && node dist/index.js",
-        "start:dev": "cross-env NODE_ENV=development docker-compose up -d && nodemon",
+        "start:dev": "cross-env NODE_ENV=development && nodemon",
         "build": "rimraf ./build && tsc",
         "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
         "coverage": "cat ./test/coverage/lcov.info | coveralls",

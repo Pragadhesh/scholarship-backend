@@ -30,7 +30,7 @@ export default app;
 // Configure DB
 if (env !== 'test') {
 	mongoose
-		.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {
+		.connect(`mongodb+srv://${config.db.username}:${config.db.password}@course-organizer.hxipzhp.mongodb.net/?retryWrites=true&w=majority`, {
 			useNewUrlParser: true,
 			useUnifiedTopology: true,
 		})

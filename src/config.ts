@@ -4,6 +4,6 @@ export const config = {
 	},
 	db: {
 		username: 'course-organizer',
-		password: 'Password'
+		password: 'MfWabKLOthbzoHPd'
 	}
 };

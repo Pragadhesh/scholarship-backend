@@ -1,38 +1,14 @@
-import * as carsController from '../controllers/carsController';
+import * as usersController from '../controllers/UsersController';
 import { RouteOptions } from 'fastify';
-import { AddCarSchema, GetCarSchema, GetCarsSchema, PutCarSchema, DeleteCarSchema } from './documentation/carsApi';
+import { AddUserSchema} from './documentation/UsersApi';
 
-const getCarsRoute: RouteOptions = {
-	method: 'GET',
-	url: '/api/cars',
-	handler: carsController.getCars,
-	schema: GetCarsSchema,
-};
-const getCarRoute: RouteOptions = {
-	method: 'GET',
-	url: '/api/cars/:id',
-	handler: carsController.getSingleCar,
-	schema: GetCarSchema,
-};
-const postCarRoute: RouteOptions = {
+
+const postUsersRoute: RouteOptions = {
 	method: 'POST',
-	url: '/api/cars',
-	handler: carsController.addCar,
-	schema: AddCarSchema,
+	url: '/api/users',
+	handler: usersController.AddUser,
+	schema: AddUserSchema,
 };
-const putCarRoute: RouteOptions = {
-	method: 'PUT',
-	url: '/api/cars/:id',
-	handler: carsController.updateCar,
-	schema: PutCarSchema,
-};
-const deleteCarRoute: RouteOptions = {
-	method: 'DELETE',
-	url: '/api/cars/:id',
-	handler: carsController.deleteCar,
-	schema: DeleteCarSchema,
-};
-
-const routes = [getCarsRoute, getCarRoute, postCarRoute, putCarRoute, deleteCarRoute];
+const routes = [postUsersRoute];
 
 export default routes;

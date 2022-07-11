@@ -3,8 +3,8 @@ export const Options = {
 	exposeRoute: true,
 	swagger: {
 		info: {
-			title: 'Cars API',
-			description: 'Building a blazing fast REST API with Node.js, MongoDB, Fastify and Swagger',
+			title: 'Course Planner API',
+			description: 'Backend for Course Planner',
 			version: '1.0.0',
 		},
 		externalDocs: {

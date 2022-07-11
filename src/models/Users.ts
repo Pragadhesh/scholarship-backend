@@ -37,7 +37,19 @@ const UsersSchema = new mongoose.Schema({
 				return validator.default.isEmail(email)
 			}
 		}
-	},	
+	},
+	gender:
+	{
+		type: String,
+		required: true,
+		validate:
+		{
+			validator(gender: string)
+			{
+				return validator.default.matches('Male','Female')
+			}
+		}
+	}
 },
 {
 	collection: 'Users',

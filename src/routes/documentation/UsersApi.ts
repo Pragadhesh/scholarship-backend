@@ -1,5 +1,6 @@
 export const AddUserSchema = {
 	description: 'Create a new User',
+	tags: ['user'],
 	summary: 'Creates new User with given values',
 	body: {
 		type: 'object',

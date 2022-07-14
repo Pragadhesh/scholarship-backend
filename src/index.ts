@@ -5,10 +5,14 @@ import { Options } from './config/swagger';
 import { config } from './config';
 import swagger from 'fastify-swagger';
 const env = process.env.NODE_ENV;
+import cors from 'cors';
 
 // Configure App
 const app = fastify.default({ logger: true });
 app.register(swagger, Options);
+app.use(cors({
+    origin: '*'
+}));
 
 routes.forEach(route => {
 	app.route(route);

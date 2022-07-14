@@ -12,7 +12,7 @@ const ScolarshipSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	whocanapply: 
+	eligiblity: 
 	{
 		type: String,
 		required: true

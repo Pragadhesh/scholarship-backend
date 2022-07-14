@@ -7,7 +7,7 @@ export const AddScolarshipSchema = {
 		properties: {
 			name: { type: 'string' },
 			description: { type: 'string' },
-			whocanapply: { type: 'string' },
+			eligiblity: { type: 'string' },
 			status: { type: 'boolean' }
 		},
 	},
@@ -19,7 +19,7 @@ export const AddScolarshipSchema = {
 				_id: { type: 'string' },
 				name: { type: 'string' },
 				description: { type: 'string' },
-				whocanapply: { type: 'string' },
+				eligiblity: { type: 'string' },
 				status: { type: 'boolean' }
 			},
 		},
@@ -44,7 +44,7 @@ export const PutScolarshipSchema = {
 		properties: {
 			name: { type: 'string' },
 			description: { type: 'string' },
-			whocanapply: { type: 'string' },
+			eligiblity: { type: 'string' },
 			status: { type: 'boolean' }
 		},
 	},
@@ -56,7 +56,7 @@ export const PutScolarshipSchema = {
 				_id: { type: 'string' },
                 name: { type: 'string' },
                 description: { type: 'string' },
-                whocanapply: { type: 'string' },
+                eligiblity: { type: 'string' },
                 status: { type: 'boolean' }
 			},
 		},
@@ -84,7 +84,7 @@ export const GetScolarshipSchema = {
 				_id: { type: 'string' },
                 name: { type: 'string' },
                 description: { type: 'string' },
-                whocanapply: { type: 'string' },
+                eligiblity: { type: 'string' },
                 status: { type: 'boolean' }
 			},
 		},
@@ -105,7 +105,7 @@ export const GetScolarshipsSchema = {
 					_id: { type: 'string' },
                     name: { type: 'string' },
                     description: { type: 'string' },
-                    whocanapply: { type: 'string' },
+                    eligiblity: { type: 'string' },
                     status: { type: 'boolean' }
 				},
 			}
@@ -134,7 +134,7 @@ export const DeleteScolarshipSchema = {
 				_id: { type: 'string' },
                 name: { type: 'string' },
                 description: { type: 'string' },
-                whocanapply: { type: 'string' },
+                eligiblity: { type: 'string' },
                 status: { type: 'boolean' }
 			},
 		},

@@ -1,8 +1,10 @@
 import * as usersController from '../controllers/UsersController';
 import * as scolarshipController from '../controllers/ScolarshipController';
+import * as templateController from '../controllers/TemplateController';
 import { RouteOptions } from 'fastify';
 import { AddUserSchema} from './documentation/UsersApi';
 import { AddScolarshipSchema, GetScolarshipSchema, GetScolarshipsSchema, PutScolarshipSchema, DeleteScolarshipSchema } from './documentation/ScolarshipApi';
+import { CreateTemplatesSchema } from './documentation/TemplateApi';
 
 //user
 const postUsersRoute: RouteOptions = {
@@ -44,8 +46,17 @@ const deleteScolarshipRoute: RouteOptions = {
 	schema: DeleteScolarshipSchema,
 };
 
+//templates
+const getTemplatesRoute: RouteOptions = {
+	method: 'GET',
+	url: '/api/templates',
+	handler: templateController.createTemplate,
+	schema: CreateTemplatesSchema,
+};
+
 const routes = [postUsersRoute,
-				getScolarshipsRoute, getScolarshipRoute, postScolarshipRoute, putScolarshipRoute, deleteScolarshipRoute
+				getScolarshipsRoute, getScolarshipRoute, postScolarshipRoute, putScolarshipRoute, deleteScolarshipRoute,
+				getTemplatesRoute
 				];
 
 export default routes;

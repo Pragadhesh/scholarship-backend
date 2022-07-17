@@ -140,3 +140,22 @@ export const DeleteScolarshipSchema = {
 		},
 	},
 };
+
+export const ApplyScolarshipSchema = {
+	description: 'Embedded signing during applying for a scholarship',
+	tags: ['scolarship'],
+	summary: 'Returns docusign embedded signing feature',
+	response: {
+		200: {
+			description: 'Successful response',
+			type: 'object',
+			properties: {
+				_id: { type: 'string' },
+				name: { type: 'string' },
+				description: { type: 'string' },
+				eligiblity: { type: 'string' },
+				status: { type: 'boolean' }
+			},
+		},
+	},
+};

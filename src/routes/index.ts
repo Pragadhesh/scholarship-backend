@@ -3,7 +3,7 @@ import * as scolarshipController from '../controllers/ScolarshipController';
 import * as templateController from '../controllers/TemplateController';
 import { RouteOptions } from 'fastify';
 import { AddUserSchema} from './documentation/UsersApi';
-import { AddScolarshipSchema, GetScolarshipSchema, GetScolarshipsSchema, PutScolarshipSchema, DeleteScolarshipSchema } from './documentation/ScolarshipApi';
+import { AddScolarshipSchema, GetScolarshipSchema, GetScolarshipsSchema, PutScolarshipSchema, DeleteScolarshipSchema, ApplyScolarshipSchema } from './documentation/ScolarshipApi';
 import { CreateTemplatesSchema } from './documentation/TemplateApi';
 
 //user
@@ -41,10 +41,16 @@ const putScolarshipRoute: RouteOptions = {
 };
 const deleteScolarshipRoute: RouteOptions = {
 	method: 'DELETE',
-	url: '/api/cars/:id',
+	url: '/api/scolarships/:id',
 	handler: scolarshipController.deleteScolarship,
 	schema: DeleteScolarshipSchema,
 };
+const applyScolarshipRoute: RouteOptions = {
+	method: 'POST',
+	url: '/api/scolarships/apply',
+	handler: scolarshipController.applyScolarship,
+	schema: ApplyScolarshipSchema
+}
 
 //templates
 const getTemplatesRoute: RouteOptions = {
@@ -56,7 +62,8 @@ const getTemplatesRoute: RouteOptions = {
 
 const routes = [postUsersRoute,
 				getScolarshipsRoute, getScolarshipRoute, postScolarshipRoute, putScolarshipRoute, deleteScolarshipRoute,
-				getTemplatesRoute
+				getTemplatesRoute,
+				applyScolarshipRoute
 				];
 
 export default routes;

@@ -20,6 +20,7 @@ export const AddScolarshipSchema = {
 				name: { type: 'string' },
 				description: { type: 'string' },
 				eligiblity: { type: 'string' },
+				templateid: { type: 'string'},
 				status: { type: 'boolean' }
 			},
 		},

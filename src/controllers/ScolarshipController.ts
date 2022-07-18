@@ -15,7 +15,7 @@ const envelopeArgs = {
 };
 let account_details = {
 	basePath: 'https://demo.docusign.net/restapi',
-	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQsAAAABAAUABwAAtZiG22faSAgAAPW7lB5o2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkEgABAAAACwAAAGludGVyYWN0aXZlMAAAWzaE22faSDcAEnQ7QQ-c_EGpK_ZxInmykQ.mtvufphvGt4tNXWR8CGmYgpfGeQ93OPgAVakeJeQrG2sE7GRD7ggGU0kS5ouTdllAzheVTQ6SmA2aanvcpK_Nu0bqtaOhE5jvkEqban2-pbmZHf77h-r19NeLDr9ybD1fM0fOPfExFtTqxKUpATkK-XRy8J9FSW2Ej1j7fWeSp3Fb41jQqL8uGID5ZruSDJ3Tj7vpiObDk3Fg_mBaHFarzJH-jyX3kNoxZVepQhqT4X0nj2NC1E3v8-dqR1Yzyg9yJo4scjqxBTKdx5My52-3skiEh-lxQUhKO7KIg6pp4HJJxPU4HqK7iVHgwd_aKK4L-5gyjQLJxTGLjdnPDirTw',
+	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQsAAAABAAUABwAAgo5ObmjaSAgAAMKxXLFo2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkEgABAAAACwAAAGludGVyYWN0aXZlMACAvsRMbmjaSDcAEnQ7QQ-c_EGpK_ZxInmykQ.fP1LhE6lhFOXCoJYrTa2O1LTd0yRJKz9WnedsLnIxELaX6JGDV3csyhV51liYdozPmp-E6ugN8GKPGBx7cYljyEKpL5arTNx0TQe5ujcqxN3EnGj6xJC2LFwDBIwBwPi_mCqCMieJycLZrh-TZTS8XI1MWeprOJ2HJz03zAm8Rn5Nhny4yHZeWe6zpN2dlMs4Rc74KMArBUhaF4cbHAPFjw-_hyP2gIEXbY6op6mgONJFK7AHbWLFYSS18JMDwdCv0-3dYS-aZs6UetAEcLu63PsAHUfPsj1bD3t7yQ1sInEIoE0vPi-DcOdzh_hq3eY3S786ixpfyeYmFzdGTfFNg',
 	accountId: '16751715',
 	templateId: 'fdc139f7-61f1-470d-9afe-fdf450614871',
 	signerEmail: 'pragadhesh14@gmail.com',
@@ -41,8 +41,10 @@ export const addScolarship = async (req: FastifyRequest, reply: FastifyReply<Ser
 		req.body.accessToken = account_details.accessToken;
 		req.body.accountId = account_details.accountId;
 		let results = await templateService.createTemplate(req.body);
+		console.log(results)
 		if (results.createdNewTemplate === true)
 		{
+		req.body.templateid = results.templateId;
 		const scolarship = new Scolarship(req.body);
 		return await scolarship.save();
 		}

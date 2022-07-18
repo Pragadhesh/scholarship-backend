@@ -108,7 +108,7 @@ templateService.createTemplate = async (args:any) => {
       fontSize: "size14",
       tabLabel: "description",
       locked: "true", //making this as readonly
-      value: "This is a sample description field",
+      value: args.description,
       required: "false",
     }),
     eligibility = docusign.Text.constructFromObject({
@@ -120,7 +120,7 @@ templateService.createTemplate = async (args:any) => {
       fontSize: "size14",
       tabLabel: "eligibility",
       locked: "true", //making this as readonly
-      value: "This is a sample eligibility field",
+      value: args.eligiblity,
       required: "false",
     }),
     heading = docusign.Text.constructFromObject({

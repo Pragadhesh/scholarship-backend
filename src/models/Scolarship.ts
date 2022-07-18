@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import * as validator from 'validator'
 
 const ScolarshipSchema = new mongoose.Schema({
 	name: 
@@ -21,7 +20,12 @@ const ScolarshipSchema = new mongoose.Schema({
     {
         type: Boolean,
         required: true
-    }
+    },
+	templateid:
+	{
+		type: String,
+		required: true
+	}
 },
 {
 	collection: 'Scolarship',

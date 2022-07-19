@@ -8,22 +8,22 @@ const embeddedSigningService = require('../services/embeddedSigning');
 const envelopeArgs = {
 	signerEmail: 'pragadhesh14@gmail.com',
 	signerName: 'Pragadhesh G',
-	signerClientId: 1000,
+	signerClientId: 1,
 	ccEmail: 'pragadhesh14@gmail.com',
 	ccName: 'Pragadhesh krishnan',
-	templateId: 'fdc139f7-61f1-470d-9afe-fdf450614871'
+	templateId: 'a8d713eb-0fa6-464e-879c-cbee73083dd8'
 };
 let account_details = {
 	basePath: 'https://demo.docusign.net/restapi',
-	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQsAAAABAAUABwAAgo5ObmjaSAgAAMKxXLFo2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkEgABAAAACwAAAGludGVyYWN0aXZlMACAvsRMbmjaSDcAEnQ7QQ-c_EGpK_ZxInmykQ.fP1LhE6lhFOXCoJYrTa2O1LTd0yRJKz9WnedsLnIxELaX6JGDV3csyhV51liYdozPmp-E6ugN8GKPGBx7cYljyEKpL5arTNx0TQe5ujcqxN3EnGj6xJC2LFwDBIwBwPi_mCqCMieJycLZrh-TZTS8XI1MWeprOJ2HJz03zAm8Rn5Nhny4yHZeWe6zpN2dlMs4Rc74KMArBUhaF4cbHAPFjw-_hyP2gIEXbY6op6mgONJFK7AHbWLFYSS18JMDwdCv0-3dYS-aZs6UetAEcLu63PsAHUfPsj1bD3t7yQ1sInEIoE0vPi-DcOdzh_hq3eY3S786ixpfyeYmFzdGTfFNg',
+	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCA0TM0XmnaSAgAgBFXQqFp2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkMACAYEk2XWnaSDcAEnQ7QQ-c_EGpK_ZxInmykQ.cbQGTCuX8p8Uum_YdpZ5QduiYEGZW84GSn0fNQioOztJjL2eie0fZyKlpOVZYzan4CB_X6kl36Sx8WldErYRTebwfh8GApIEycN4tbR3dhxtq2uvD8C19BRy3OguUOGfJtl8Mt3-XfrJ_3-MT0dCUZuckGxnAkCzrelzayVyjbkSJIqZEw2A6N542Fe7bq3W15DXaiTAVmMcDZekuvpIDPWrFjZvFbAF9-ctkvDRor_xCAyydQ6OdpBeZM9ysLfCgTBj9qDOi-FYCChD75CW_aw87u4vl2-R-gaHRnwNVljVQ7UX6hvJfYSxyJel6aJZ5UCgIKZ3BSus27cesbXlUQ',
 	accountId: '16751715',
-	templateId: 'fdc139f7-61f1-470d-9afe-fdf450614871',
-	signerEmail: 'pragadhesh14@gmail.com',
-	signerName: 'Pragadhesh G',
+	//templateId: 'a8d713eb-0fa6-464e-879c-cbee73083dd8',
+	//signerEmail: 'pragadhesh14@gmail.com',
+	//signerName: 'Pragadhesh G',
 	ccEmail: 'pragadhesh14@gmail.com',
-	ccName: 'Pragadhesh krishnan',
-	dsReturnUrl: 'http://localhost:4200/scholarships',
-	signerClientId: 1000,
+	ccName: 'Pragadhesh Gopalakrishnan',
+	dsReturnUrl: 'http://localhost:4200/',
+	signerClientId: 1,
 	envelopeArgs: envelopeArgs
 	// args.signerEmail
     // args.signerName
@@ -59,18 +59,21 @@ export const addScolarship = async (req: FastifyRequest, reply: FastifyReply<Ser
 
 export const applyScolarship = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>) => {
 	try {
-		console.log("Entered apply scolarship controller")
-		let results = await embeddedSigningService.sendEnvelopeForEmbeddedSigning(account_details)
-		console.log(results)
+		//Input - name,signerEmail,signerName,templateId
+		req.body.envelopeArgs = envelopeArgs;
+		req.body.basePath = account_details.basePath;
+		req.body.accessToken = account_details.accessToken;
+		req.body.accountId = account_details.accountId;
+		req.body.ccEmail = account_details.ccEmail;
+		req.body.ccName = account_details.ccName;
+		req.body.signerClientId = 1;
+
+		let results = await embeddedSigningService.sendEnvelopeForEmbeddedSigning(req.body)
+		return results
 	} catch (err) {
 		throw boom.boomify(err);
 	}
 };
-
-
-
-
-
 
 export const getScolarships = async (req: FastifyRequest, reply: FastifyReply<ServerResponse>): Promise<Document[]> => {
 	try {

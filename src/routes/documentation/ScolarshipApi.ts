@@ -86,7 +86,8 @@ export const GetScolarshipSchema = {
                 name: { type: 'string' },
                 description: { type: 'string' },
                 eligiblity: { type: 'string' },
-                status: { type: 'boolean' }
+                status: { type: 'boolean' },
+				templateid: {type: 'string'}
 			},
 		},
 	},
@@ -107,7 +108,8 @@ export const GetScolarshipsSchema = {
                     name: { type: 'string' },
                     description: { type: 'string' },
                     eligiblity: { type: 'string' },
-                    status: { type: 'boolean' }
+                    status: { type: 'boolean' },
+					templateid: {type: 'string'}
 				},
 			}
 		},
@@ -146,16 +148,30 @@ export const ApplyScolarshipSchema = {
 	description: 'Embedded signing during applying for a scholarship',
 	tags: ['scolarship'],
 	summary: 'Returns docusign embedded signing feature',
+	params: {
+		type: 'object',
+		properties: {
+			id: {
+				type: 'string',
+				description: 'Scolarship Id',
+			},
+			signerEmail: {
+				type: 'string',
+				description: 'signerEmail'
+			},
+			signerName: {
+				type: 'string',
+				description: 'signerName'
+			}
+		},
+	},
 	response: {
 		200: {
 			description: 'Successful response',
 			type: 'object',
 			properties: {
-				_id: { type: 'string' },
-				name: { type: 'string' },
-				description: { type: 'string' },
-				eligiblity: { type: 'string' },
-				status: { type: 'boolean' }
+				envelopeId: { type: 'string' },
+				redirectUrl: { type: 'string' },
 			},
 		},
 	},

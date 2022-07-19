@@ -71,6 +71,7 @@ const embeddedSigningService = exports;
     let signer1 = docusign.TemplateRole.constructFromObject({
       email: args.signerEmail,
       name: args.signerName,
+      clientUserId: args.signerClientId,
       roleName: "signer",
     });
   
@@ -105,7 +106,7 @@ const embeddedSigningService = exports;
    // the DocuSign signing. It's usually better to use
    // the session mechanism of your web framework. Query parameters
    // can be changed/spoofed very easily.
-   viewRequest.returnUrl = args.dsReturnUrl + "?state=123";
+   viewRequest.returnUrl = "http://localhost:4200/scholarships";
  
    // How has your app authenticated the user? In addition to your app's
    // authentication, you can include authenticate steps from DocuSign.

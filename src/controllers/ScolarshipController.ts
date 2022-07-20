@@ -6,16 +6,13 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 const templateService = require('../services/templateService');
 const embeddedSigningService = require('../services/embeddedSigning');
 const envelopeArgs = {
-	signerEmail: 'pragadhesh14@gmail.com',
-	signerName: 'Pragadhesh G',
 	signerClientId: 1,
 	ccEmail: 'pragadhesh14@gmail.com',
 	ccName: 'Pragadhesh krishnan',
-	templateId: 'a8d713eb-0fa6-464e-879c-cbee73083dd8'
 };
 let account_details = {
 	basePath: 'https://demo.docusign.net/restapi',
-	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCA0TM0XmnaSAgAgBFXQqFp2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkMACAYEk2XWnaSDcAEnQ7QQ-c_EGpK_ZxInmykQ.cbQGTCuX8p8Uum_YdpZ5QduiYEGZW84GSn0fNQioOztJjL2eie0fZyKlpOVZYzan4CB_X6kl36Sx8WldErYRTebwfh8GApIEycN4tbR3dhxtq2uvD8C19BRy3OguUOGfJtl8Mt3-XfrJ_3-MT0dCUZuckGxnAkCzrelzayVyjbkSJIqZEw2A6N542Fe7bq3W15DXaiTAVmMcDZekuvpIDPWrFjZvFbAF9-ctkvDRor_xCAyydQ6OdpBeZM9ysLfCgTBj9qDOi-FYCChD75CW_aw87u4vl2-R-gaHRnwNVljVQ7UX6hvJfYSxyJel6aJZ5UCgIKZ3BSus27cesbXlUQ',
+	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQoAAAABAAUABwCASCx2LmraSAgAgIhPhHFq2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkMACApOTaKGraSDcAEnQ7QQ-c_EGpK_ZxInmykQ.AUtFkOnzDnXLMVIJIEB6uT82zQ7tHZjy3yPkFC6GLG8ShPrTi4cZXqiv6C1LVgDhfo4soNq7hUjAFi4PdM-LxhZLyj3I3Pyr65P_Z2p_0ThmHsBIAZ5GUMCugwXJr3gnRWakX8nQ7GOflozexmndajqHIw081NOSf3m6SNEOqtjlpH11mHzegS8deNfH3m_UyD572Y2bO6ZJYbHl-qHdu53pSJ66QJp8oOiinBNq8Ln2BY3sTckkSSn2KFT7kml71REGyMr40if1joLyysU70LHuOxicB9K_Z0RaJtWLlvexNVFwxbCvA0lAilDrAVPEhy8tE0mtGy8mkkyutO0slw',
 	accountId: '16751715',
 	//templateId: 'a8d713eb-0fa6-464e-879c-cbee73083dd8',
 	//signerEmail: 'pragadhesh14@gmail.com',
@@ -61,6 +58,10 @@ export const applyScolarship = async (req: FastifyRequest, reply: FastifyReply<S
 	try {
 		//Input - name,signerEmail,signerName,templateId
 		req.body.envelopeArgs = envelopeArgs;
+		req.body.envelopeArgs.templateId = req.body.templateId;
+		req.body.envelopeArgs.signerName = req.body.signerName;
+		req.body.envelopeArgs.signerName = req.body.signerName;
+		req.body.envelopeArgs.signerEmail = req.body.signerEmail;
 		req.body.basePath = account_details.basePath;
 		req.body.accessToken = account_details.accessToken;
 		req.body.accountId = account_details.accountId;

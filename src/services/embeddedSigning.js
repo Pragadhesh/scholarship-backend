@@ -106,7 +106,7 @@ const embeddedSigningService = exports;
    // the DocuSign signing. It's usually better to use
    // the session mechanism of your web framework. Query parameters
    // can be changed/spoofed very easily.
-   viewRequest.returnUrl = "http://localhost:4200/scholarships";
+   viewRequest.returnUrl = "http://localhost:4200/";
  
    // How has your app authenticated the user? In addition to your app's
    // authentication, you can include authenticate steps from DocuSign.

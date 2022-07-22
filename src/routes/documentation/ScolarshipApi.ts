@@ -176,3 +176,28 @@ export const ApplyScolarshipSchema = {
 		},
 	},
 };
+
+
+export const GetConsentSchema = {
+	description: 'Gets consent url',
+	tags: ['scolarship'],
+	summary: 'Gets consent url',
+	params: {
+		type: 'object',
+		properties: {
+			templateid: {
+				type: 'string',
+				description: 'Template Id',
+			},
+	}
+},
+	response: {
+		200: {
+			description: 'Successful response',
+				type: 'object',
+				properties: {
+					consent_url: { type: 'string' },
+				},
+		},
+	},
+};

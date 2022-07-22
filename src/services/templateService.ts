@@ -277,6 +277,13 @@ templateService.createTemplate = async (args:any) => {
       yPosition: "597",
       required: "true",
     }),
+    familysituation = docusign.SignerAttachment.constructFromObject({
+      documentId: "1",
+      pageNumber: "2",
+      xPosition: "269",
+      yPosition: "686",
+      required: "true",
+    }),
     date = docusign.DateSigned.constructFromObject({
       documentId: "1",
       pageNumber: "3",
@@ -313,9 +320,7 @@ templateService.createTemplate = async (args:any) => {
       textTabs: [description,eligibility,firstname,lastname,gender,eligibility,
                 address,zipcode,country,studystatus,place,contact,dob,citizenship,
               heading],
-      signerAttachmentTabs: [idproof]
-       
-        
+      signerAttachmentTabs: [idproof,familysituation]   
     });
     signer1.tabs = signer1Tabs;
   

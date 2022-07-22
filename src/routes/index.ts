@@ -3,7 +3,7 @@ import * as scolarshipController from '../controllers/ScolarshipController';
 import * as templateController from '../controllers/TemplateController';
 import { RouteOptions } from 'fastify';
 import { AddUserSchema} from './documentation/UsersApi';
-import { AddScolarshipSchema, GetScolarshipSchema, GetScolarshipsSchema, PutScolarshipSchema, DeleteScolarshipSchema, ApplyScolarshipSchema } from './documentation/ScolarshipApi';
+import { AddScolarshipSchema, GetScolarshipSchema, GetScolarshipsSchema, PutScolarshipSchema, DeleteScolarshipSchema, ApplyScolarshipSchema, GetConsentSchema } from './documentation/ScolarshipApi';
 import { CreateTemplatesSchema } from './documentation/TemplateApi';
 
 //user
@@ -52,6 +52,13 @@ const applyScolarshipRoute: RouteOptions = {
 	schema: ApplyScolarshipSchema
 }
 
+const getConsentRoute: RouteOptions = {
+	method: 'POST',
+	url: '/api/consent',
+	handler: scolarshipController.getconsent,
+	schema: GetConsentSchema,
+};
+
 //templates
 const getTemplatesRoute: RouteOptions = {
 	method: 'GET',
@@ -60,10 +67,13 @@ const getTemplatesRoute: RouteOptions = {
 	schema: CreateTemplatesSchema,
 };
 
+
+
 const routes = [postUsersRoute,
 				getScolarshipsRoute, getScolarshipRoute, postScolarshipRoute, putScolarshipRoute, deleteScolarshipRoute,
 				getTemplatesRoute,
-				applyScolarshipRoute
+				applyScolarshipRoute,
+				getConsentRoute
 				];
 
 export default routes;

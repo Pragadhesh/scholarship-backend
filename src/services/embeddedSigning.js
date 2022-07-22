@@ -36,7 +36,6 @@ const embeddedSigningService = exports;
    results = await envelopesApi.createRecipientView(args.accountId, envelopeId, {
      recipientViewRequest: viewRequest,
    });
- 
    return { envelopeId: envelopeId, redirectUrl: results.url };
  };
  

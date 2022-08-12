@@ -1,5 +1,5 @@
-# course-planner-nodejs
-Course Planner backend built with TypeScript and MongoDB
+# scholarship-backend
+Scholarship backend built with TypeScript and MongoDB
 
 
 ## Requirements

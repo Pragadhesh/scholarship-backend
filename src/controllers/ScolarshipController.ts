@@ -6,27 +6,19 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 const templateService = require('../services/templateService');
 const embeddedSigningService = require('../services/embeddedSigning');
 const envelopeArgs = {
-	signerClientId: 2,
-	ccEmail: 'pragadhesh14@gmail.com',
-	ccName: 'Pragadhesh krishnan',
+	signerClientId: 'signerclientId',
+	ccEmail: 'ccEmail',
+	ccName: 'ccName',
 };
 let account_details = {
 	basePath: 'https://demo.docusign.net/restapi',
-	accessToken: 'eyJ0eXAiOiJNVCIsImFsZyI6IlJTMjU2Iiwia2lkIjoiNjgxODVmZjEtNGU1MS00Y2U5LWFmMWMtNjg5ODEyMjAzMzE3In0.AQsAAAABAAUABwCAWIw5uGvaSAgAgJivR_tr2kgCANXOAolPuPBGlKZKRVQEeicVAAEAAAAYAAEAAAAFAAAADQAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkIgAkAAAAYTE4NGRkOTAtOWQ5YS00ZDBjLTkxNTAtZjUzMTI3ODZjOTRkEgABAAAACwAAAGludGVyYWN0aXZlMAAAlcI3uGvaSDcAEnQ7QQ-c_EGpK_ZxInmykQ.LiLr0sTP0km-Lys96pYQxvbYGBEdfiv8aV5_fgMJgPMyWlQJPsqwDrKg9JiP7MYZejgJBEEtXZo3QyhbXrmeBFHw0xASPuRpuv3To4PvK9863HeiFOYveQ9PembGagtt79MFmCpdj8LAqrsYriqoccWL8t1fqCNpf9NeFXiiUyohSLhd8tmQ2niZ5xv755pPNGVVZEW74-H-l9uxx-1Q8i7GQRdRDHXLlJ3TJGhHxkx0p61k5tkNvG_XX5gvY0Smrqfqx9fXf4_Uyw8KAGorQyYq9l_seTXJ9YI2NrjRbuBq1xc25oyqd1rXkY5YxLvvhdxIWzNItYRyNS8XgUMY9A',
-	accountId: '16751715',
-	//templateId: 'a8d713eb-0fa6-464e-879c-cbee73083dd8',
-	//signerEmail: 'pragadhesh14@gmail.com',
-	//signerName: 'Pragadhesh G',
-	ccEmail: 'pragadhesh14@gmail.com',
-	ccName: 'Pragadhesh Gopalakrishnan',
+	accessToken: 'accesstoken',
+	accountId: 'accountId',
+	ccEmail: 'ccEmail',
+	ccName: 'ccName',
 	dsReturnUrl: 'http://localhost:4200/',
 	signerClientId: 1,
 	envelopeArgs: envelopeArgs
-	// args.signerEmail
-    // args.signerName
-    // args.ccEmail
-    // args.ccName
-    // args.templateId
 }
 
 
